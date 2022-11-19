@@ -6,9 +6,12 @@
 	<title></title>
 </head>
 <body>
-	<section id="emp" style="display: flex;">
+	<p><input placeholder="enter name"id="username"></p>
+	<p><input placeholder="enter notes" id="notes"></p>
+	<button onclick="validate()">submit</button>
+	<!-- <section id="emp" style="display: flex;">
 		
-	</section>
+	</section> -->
 	<script type="text/javascript">
 		/*const promiseObj= new Promise((resolve,reject)=>{
 			var time=Math.random();
@@ -22,7 +25,7 @@
 		})
 		console.log(promiseObj)
 		console.log('hello')*/
-		fetch("https://reqres.in/api/users?page-2")
+		/*fetch("https://reqres.in/api/users?page-2")
 		.then((res)=>{
 			console.log(res)
 			return res.json()
@@ -42,6 +45,38 @@
 				</div>`
 				//console.log(employees[i].first_name)
 			}
+		}*/
+		/*fetch("https://reqres.in/api/users",{
+			method:"POST",
+			headers:{
+				"Content-Type":"application/json"
+			},
+			body:JSON.stringify({type:"JavaScript",year:2022})
+		})
+		.then((res)=>{
+			console.log(res)
+			return res.json()
+		})
+		.then((f)=>{
+			console.log(f)
+		})*/
+		function validate(){
+			var userName=document.getElementById("username").value,notes=document.getElementById("notes").value
+			console.log(userName,notes)
+			fetch("https://reqres.in/api/users",{
+			method:"POST",
+			headers:{
+				"Content-Type":"application/json"
+			},
+			body:JSON.stringify({user:userName,notes})
+		})
+		.then((res)=>{
+			console.log(res)
+			return res.json()
+		})
+		.then((f)=>{
+			console.log(f)
+		})
 		}
 	</script>
 </body>
